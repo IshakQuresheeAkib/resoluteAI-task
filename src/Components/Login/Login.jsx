@@ -40,7 +40,7 @@ const Login = () => {
                         <input type="password" {...register('password', { required: true })} placeholder="password" className="input input-bordered" required />
                         {errors.exampleRequired && <span>This field is required</span>}
                         <label className="label">
-                        <p className="label-text-alt ">{`Don't have accout?`} <Link to='/signup' className="link link-hover">Sign up!</Link></p>
+                        <p className="label-text-alt ">{`Don't have account?`} <Link to='/signup' className="link link-hover">Sign up!</Link></p>
                         </label>
                     </div>
                     <div className="form-control mt-6">

@@ -4,12 +4,15 @@ import useAuth from './hook/useAuth.jsx'
 
 function App() {
 
-  const {user} = useAuth();
-  console.log(user);
+  const {user,loading} = useAuth();
+  console.log(user,loading);
 
   return (
       <div>
-        {user ? <UserList/> : <Login/>}
+        {loading ? <div className='flex justify-center items-center h-screen'>
+          <span className="loading loading-bars loading-lg text-accent"></span>
+          </div> :
+           user ? <UserList/> : <Login/>}
       </div>
   )
 }
