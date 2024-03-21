@@ -1,7 +1,8 @@
-import { useForm } from "react-hook-form"
+import { Form, useForm } from "react-hook-form"
 import useAuth from "../../hook/useAuth"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Signup = () => {
     
@@ -18,9 +19,12 @@ const Signup = () => {
         console.log(email,password)
         createUser(email,password)
         .then(() => {
-            axios.post('http://localhost:5000/users',{email})
+            axios.post('https://resoluteai-server.vercel.app/users',{email})
             .then(()=>{
-                alert('Account created successfully')
+                Swal.fire({
+                    title: "Account created successfully!",
+                    icon: "success"
+                  });
                 navigate('/')
             })
             .catch(err=>console.log(err))

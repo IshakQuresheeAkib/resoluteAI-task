@@ -1,6 +1,7 @@
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 
 const UserList = () => {
@@ -8,7 +9,7 @@ const UserList = () => {
     const [userList,setUserList] = useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/users')
+        axios.get('https://resoluteai-server.vercel.app/users')
     .then(data=>{
         // console.log(data?.data);
         setUserList(data?.data)
@@ -18,11 +19,31 @@ const UserList = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        axios.delete(`http://localhost:5000/users/${id}`)
-        .then(res=>{
-            console.log(res);
-        })
-        .catch(err=>console.log(err))
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor:'#d33',
+            cancelButtonColor: "green",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`https://resoluteai-server.vercel.app/users/${id}`)
+                .then(res=>{
+                    console.log(res);
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                })
+                .catch(err=>console.log(err))              
+            }
+          });
+
+        
     }
 
     return (

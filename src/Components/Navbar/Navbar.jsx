@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import useAuth from "../../hook/useAuth";
 
 const Navbar = () => {
@@ -6,7 +7,13 @@ const Navbar = () => {
 
     const signOut = () => {
         logOut()
-        .then(() => alert('log out successful!'))
+        
+        .then(() => {
+            Swal.fire({
+                title: "Logged out successfully!",
+                icon: "success"
+              });
+        })
         .catch(err=>console.log(err))
     }
 

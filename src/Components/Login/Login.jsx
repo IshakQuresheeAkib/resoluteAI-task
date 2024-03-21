@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import useAuth from "../../hook/useAuth"
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
     
@@ -15,9 +16,12 @@ const Login = () => {
     const onSubmit = ({email,password}) => {
         console.log(email,password)
         logIn(email,password)
-        .then(data => console.log(data)
-        // alert('successfully registered')
-    )
+        .then(() => {
+            Swal.fire({
+                title: "Log in successful!",
+                icon: "success"
+              });
+        })
         .catch(error => console.log(error))
     }
     
@@ -44,7 +48,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-accent"><input type="submit" value='Sign up'/></button>
+                        <button className="btn btn-accent"><input type="submit" value='Log in'/></button>
                     </div>
                 </form>
             </div>

@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB7QrquTjF8SH1Ly9HCAnap1YuVm8I6uC0",
-  authDomain: "resoluteai-66180.firebaseapp.com",
-  projectId: "resoluteai-66180",
-  storageBucket: "resoluteai-66180.appspot.com",
-  messagingSenderId: "26535694205",
-  appId: "1:26535694205:web:6944f1faa018dae93b0614"
+  apiKey: "AIzaSyAy372pgfQIpWF7eLQE2xs-NQ1shyutYMk",
+  authDomain: "resoluteai-91587.firebaseapp.com",
+  projectId: "resoluteai-91587",
+  storageBucket: "resoluteai-91587.appspot.com",
+  messagingSenderId: "310852663781",
+  appId: "1:310852663781:web:fd5013eba38c3c13cad70c"
 };
 
 // Initialize Firebase
